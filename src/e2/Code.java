@@ -31,7 +31,6 @@ public class Code {
         }
 
 
-
         int i = 1, j = 1;
         int il = keypad.length;
         int jl = keypad[0].length;
