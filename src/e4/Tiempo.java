@@ -81,13 +81,13 @@ public class Tiempo {
         StringBuilder sb = new StringBuilder();
         switch (TrafficJunction.north) {
             case Green -> {
-                sb.append("[NORTH: GREEN " + TrafficJunction.time + "]");
+                sb.append("[NORTH: GREEN ").append(TrafficJunction.time).append("]");
             }
             case Red -> {
                 sb.append("[NORTH: RED]");
             }
             case Amber_OFF -> {
-                sb.append("[NORTH: AMBER OFF " + TrafficJunction.time + "]");
+                sb.append("[NORTH: AMBER OFF ").append(TrafficJunction.time).append("]");
             }
 
             case Amber_ON -> {
@@ -96,13 +96,13 @@ public class Tiempo {
         }
         switch (TrafficJunction.South) {
             case Green -> {
-                sb.append("[SOUTH: GREEN " + TrafficJunction.time + "]");
+                sb.append("[SOUTH: GREEN ").append(TrafficJunction.time).append("]");
             }
             case Red -> {
                 sb.append("[SOUTH: RED]");
             }
             case Amber_OFF -> {
-                sb.append("[SOUTH: AMBER OFF " + TrafficJunction.time + "]");
+                sb.append("[SOUTH: AMBER OFF ").append(TrafficJunction.time).append("]");
             }
 
             case Amber_ON -> {
@@ -113,13 +113,13 @@ public class Tiempo {
 
         switch (TrafficJunction.East) {
             case Green -> {
-                sb.append("[EAST: GREEN " + TrafficJunction.time + "]");
+                sb.append("[EAST: GREEN ").append(TrafficJunction.time).append("]");
             }
             case Red -> {
                 sb.append("[EAST: RED]");
             }
             case Amber_OFF -> {
-                sb.append("[EAST: AMBER OFF " + TrafficJunction.time + "]");
+                sb.append("[EAST: AMBER OFF ").append(TrafficJunction.time).append("]");
             }
 
             case Amber_ON -> {
@@ -128,13 +128,13 @@ public class Tiempo {
         }
         switch (TrafficJunction.West) {
             case Green -> {
-                sb.append("[WEST: GREEN " + TrafficJunction.time + "]");
+                sb.append("[WEST: GREEN ").append(TrafficJunction.time).append("]");
             }
             case Red -> {
                 sb.append("[WEST: RED]");
             }
             case Amber_OFF -> {
-                sb.append("[WEST: AMBER OFF " + TrafficJunction.time + "]");
+                sb.append("[WEST: AMBER OFF ").append(TrafficJunction.time).append("]");
             }
 
             case Amber_ON -> {

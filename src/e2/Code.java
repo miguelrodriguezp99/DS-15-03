@@ -1,6 +1,5 @@
 package e2;
 
-import javax.crypto.spec.PSource;
 
 public class Code {
     /**
@@ -19,11 +18,12 @@ public class Code {
             return false;
         }
         //Show del pad
-        for (int x = 0; x < keypad.length; x++) {
-            if (keypad[x] == null) {
+        //(int x = 0; x < keypad.length; x++)
+        for (char[] chars : keypad) {
+            if (chars == null) {
                 return false;
             }
-            for (int y = 0; y < keypad.length-1; y++) {
+            for (int y = 0; y < keypad.length - 1; y++) {
                 if (keypad[y] == null) {
                     return false;
                 }
@@ -44,6 +44,7 @@ public class Code {
 
         for (i = 0; i < keypad.length; i++) {
             for (j = 0; j < keypad[i].length; j++) {
+                System.out.println(""); //creo el array
             }
         }
 
@@ -52,15 +53,7 @@ public class Code {
                 return false;
             }
 
-            while (i < il) {
-                if (jl == (keypad[i].length) - 1) {
-                    i++;
-                } else {
-                    return false;
-                }
-            }
-
-            if (keypad[0].length > 1 && keypad[0][1] == '2') { //En la columna 0 en la fila 2 el valor es dos
+        if (keypad[0].length > 1 && keypad[0][1] == '2') { //En la columna 0 en la fila 2 el valor es dos
 
 
                 i = 0;
@@ -161,10 +154,6 @@ public class Code {
                 if (contador == 10 && keypad[i][j] != '0') {
                     return false;
                 } else {
-                    if (i == il) {
-                        i = 0;
-                        j++;
-                    }
                     i++;
                     contador = 0;
                     for (; j < keypad[0].length; j++) {

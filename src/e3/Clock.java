@@ -114,17 +114,12 @@ public class Clock {
      */
     public Clock ( int hours , int minutes , int seconds , Period period ) {
 
-        if(period == Period.AM && hours > 12 || minutes > 59 || seconds > 59 || hours <0 || minutes < 0 || seconds < 0)
+        if(period == Period.AM && hours > 12 || minutes > 59 || seconds > 59 || hours <0 || minutes < 0 || seconds < 0 || period == Period.PM && hours > 24)
         {
 
             throw new IllegalArgumentException("Hora no valida");
         }
 
-        if(period == Period.PM && hours > 24 || minutes > 59 || seconds > 59 || hours <0 || minutes < 0 || seconds < 0)
-        {
-
-            throw new IllegalArgumentException("Hora no valida");
-        }
 
         this.hours = hours;
         this.minutes = minutes;
