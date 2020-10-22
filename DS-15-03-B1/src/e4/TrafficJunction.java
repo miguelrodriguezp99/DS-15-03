@@ -6,7 +6,6 @@ public class TrafficJunction {
     public static Ciclo East;
     public static Ciclo West;
     public static int time;
-    Tiempo tiempo = new Tiempo();
     public enum Ciclo {Green, Amber_ON, Amber_OFF, Red};
 
     public TrafficJunction() {
@@ -15,7 +14,6 @@ public class TrafficJunction {
         East = Ciclo.Red;
         South = Ciclo.Red;
     }
-
     public void timesGoesBy() {
         Tiempo.times();
     }
