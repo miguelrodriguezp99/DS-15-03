@@ -1,15 +1,13 @@
 package e1;
 
-import java.util.Random;
-
 public abstract class Hero {
     private final String nombre;
-    private int vida = 0;
-    private int armadura;
+    private int vida;
+    private final int armadura;
     private boolean done = false;
 
 
-    public abstract void fight(int tirada, Bestias b);
+    public abstract void fight(int tirada, Beasts b);
 
     protected Hero(String nombre, int vida, int armadura) {
         if(nombre == null || vida == 0){
@@ -20,13 +18,13 @@ public abstract class Hero {
         this.armadura = armadura;
     }
 
-    void setHP(int danho){
+    void setVida(int danho){
         if(danho > this.armadura){
             this.vida = this.vida - (danho-armadura);
         }
     }
 
-    void setHPorcos(int danho) {
+    void setvidaOrcos(int danho) { //Metodo para hacer update a la vida cuando ataca un orco
         int armor=this.armadura;
         if(!done){
         armor = (int) (armadura - armadura * 0.10);

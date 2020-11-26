@@ -1,6 +1,6 @@
 package e1;
 
-public class Orcos extends Bestias{
+public class Orcos extends Beasts {
 
     public Orcos(String nombre, int vida, int armadura) {
         super(nombre, vida, armadura);
@@ -13,7 +13,7 @@ public class Orcos extends Bestias{
 
     public void fight(int tirada, Hero h){
         int vidaantes = h.getVida();
-        h.setHPorcos(tirada);
-        System.out.println(vidaantes +" HP de "+ h.getNombre()+ " -------> " + h.getVida());    }
-
+        h.setvidaOrcos(tirada);
+        System.out.println(vidaantes +" HP de "+ h.getNombre()+ " -------> " + h.getVida());
+    }
 }

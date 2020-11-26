@@ -8,18 +8,23 @@ public class Matrix implements Iterable<Integer>{
 
     public int [][] m;
     private boolean change = false;
+    Iterator<Integer> i1;
+    Iterator<Integer> i2;
 
-    public Matrix(int columnas, int filas){
+    public Matrix(int columnas, int filas){  //Constructor
+        m = new int [filas][columnas];
 
-    m = new int [filas][columnas];
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[0].length; j++) {
                 m[i][j] = 0;
             }
         }
+
+        i1 = new MiIteratorFilas();
+        i2 = new MiIteratorColumnas();
     }
 
-    public Matrix(int[][] matriz){
+    public Matrix(int[][] matriz){ //Constructor
 
         if(matriz == null)
         {
@@ -37,13 +42,12 @@ public class Matrix implements Iterable<Integer>{
             }
         }
 
-
         m = matriz;
-
-
+        i1 = new MiIteratorFilas();
+        i2 = new MiIteratorColumnas();
     }
     
-//Leer matriz
+
     public int getColumnas(){
         return m[0].length;
 
@@ -53,18 +57,9 @@ public class Matrix implements Iterable<Integer>{
         return m.length;
 
     }
-/*public void readMatrix() {
-    int i;
-    int j = 0;
-    for (i = 0; i < m.length; i++) {
-        for (j = 0; j < m[0].length; j++) {
-            System.out.println();
-        }
-    }
 
-}*/
 
-public int getValor(int columna, int fila){
+public int getValor(int fila, int columna){ //GetValor de una coordenada
 
     if(columna > m[0].length || fila > m.length)
         throw new IllegalArgumentException("Fuera de rango");
@@ -73,7 +68,7 @@ public int getValor(int columna, int fila){
 
 }
 
-public void modificar(int fila, int columna, int valor){
+public void modificar(int fila, int columna, int valor){//
 
         if(columna >= m[0].length){
             throw new IllegalArgumentException("Coordenada no valida");
@@ -86,9 +81,7 @@ public void modificar(int fila, int columna, int valor){
 }
 
 public int[][] returnCopiaBidimensional(){
-        int [][] c;
-        c = this.m;
-        return c;
+        return m;
 }
 
 public int[] returnCopiaFila(int fila){
@@ -96,16 +89,14 @@ public int[] returnCopiaFila(int fila){
 }
 
 public Integer[] returnCopiaColumna(int columna){
-    ArrayList<Integer> list = new ArrayList<Integer>();
+    ArrayList<Integer> list = new ArrayList<>();
 
-    for (int i = 0; i < m.length; i++) {
-
-      list.add(m[i][columna]);
+    for (int[] ints : m) {
+        list.add(ints[columna]);
     }
     Integer[] arrayColumna = new Integer[list.size()];
     list.toArray(arrayColumna);
     return arrayColumna;
-
 }
 
 public String returnString(){
@@ -117,26 +108,25 @@ public String returnString(){
     return sb.toString();
 }
 
+    public Iterator<Integer> rowColumnIterator() {
+        return i1;
+    }
+    public Iterator<Integer> columnRowIterator() {
+        return i2;
+    }
+
     public void cambiarIterador(){
         change = !change;
-    }
-
-    public Iterator<Integer> columnRowIterator() {
-        return new MiIteratorColumnas();
-    }
-
-    public Iterator<Integer> rowColumnIterator() {
-        return new MiIteratorFilas();
     }
 
     @Override
     public Iterator<Integer> iterator() {
         if(!change){
-            return new MiIteratorColumnas();
+            return i1;
         }
         else
         {
-            return new MiIteratorFilas();
+            return i2;
         }
     }
 
@@ -154,10 +144,7 @@ public String returnString(){
             if(columna+1 < m[0].length){
              return true;
             }
-            if(columna+1 >= m[0].length && fila+1 < m.length){
-                return true;
-            }
-            return false;
+            return columna + 1 >= m[0].length && fila + 1 < m.length;
         }
 
         public Integer next() {
@@ -189,10 +176,7 @@ public String returnString(){
             if(columna+1 < m[0].length){
                 return true;
             }
-            if(columna+1 >= m[0].length && fila+1 < m.length){
-                return true;
-            }
-            return false;
+            return columna + 1 >= m[0].length && fila + 1 < m.length;
         }
 
         public Integer next() {
@@ -208,18 +192,5 @@ public String returnString(){
             throw new UnsupportedOperationException("No soportado.");
         }
     }
-
-
-
-    public static void main(String[] args) {
-        int [][] matriz123 = {{1,3,4,5},{6,7,8,9}};
-        Matrix m = new Matrix(matriz123);
-        // System.out.println(m.returnString());
-        // System.out.println(Arrays.toString(m.returnCopiaFila(0)));
-        //System.out.println(Arrays.toString(m.returnCopiaColumna(1)));
-
-
-    }
-
 
 }
