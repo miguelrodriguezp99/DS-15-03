@@ -5,8 +5,8 @@ public abstract class Beasts {
     private int vida;
     private final int armadura;
 
-    public abstract void fight(int tirada, Hero b); //Metodo fight
-    public abstract String getClase(); //Metodo que devuelve si es un Orco o un Trasgo para aplicar las diferenciaciones al atacar
+    public abstract void fight(int tirada, Hero b); // Metodo fight
+    public abstract String getClase(); // Metodo que devuelve si es un Orco o un Trasgo para aplicar las diferenciaciones al atacar
 
     public Beasts(String nombre, int vida, int armadura) { //Constructor
         if(nombre == null || vida == 0){
