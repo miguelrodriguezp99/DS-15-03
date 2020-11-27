@@ -9,7 +9,7 @@ public class Gunfight {
          GunslingerAction action2;
          int round =1;
 
-        while(!duel && !duel2) //duel y duel sirven para saber quien ha muerto, true = muerto
+        while(!duel && !duel2 && round < 100) //duel y duel2 sirven para saber quien ha muerto, true = muerto
         {
             System.out.println("Round " +round+ "-----------------");
             System.out.println("(LOADS G1: " + g1.getLoads() +" = " + g2.getRivalLoads() + " ) " + g2.getRivalActions().toString());
@@ -42,16 +42,18 @@ public class Gunfight {
             System.out.println("Winner: Gunslinger 2");
     }
 
-/*    public static void main(String[] args){
+  /* public static void main(String[] args){
             Gunslinger g1 = new Gunslinger();
             Gunslinger g2 = new Gunslinger();
 
-            Behavior behavior = new testBehavior();
-            Behavior behavior2 = new testBehavior();
+            Behavior behavior = new DS_15_03();
+            Behavior behavior2 = new DS_15_03();
 
             g1.setBehavior(behavior);
             g2.setBehavior(behavior2);
-            Gunfight.duel(g1, g2);
+
+                Gunfight.duel(g1, g2);
+
     }*/
 
 }

@@ -1,6 +1,5 @@
 package e3;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,7 @@ class GunslingerTest {
 
     @BeforeEach
     void test123(){
-        Behavior behavior = new testBehavior();
+        Behavior behavior = new DS_15_03();
         g1.setBehavior(behavior);
         g2.setBehavior(behavior);
     }

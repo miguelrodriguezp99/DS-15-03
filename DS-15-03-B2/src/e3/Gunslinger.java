@@ -46,7 +46,7 @@ public class Gunslinger {
             if (gunslingerAction == GunslingerAction.RELOAD) {
                 enemyLoads++;
             }
-            if (gunslingerAction == GunslingerAction.SHOOT && enemyLoads >= 0) {
+            if (gunslingerAction == GunslingerAction.SHOOT && enemyLoads > 0) {
                 enemyLoads--;
             }
         }
